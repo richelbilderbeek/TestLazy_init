@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 /*
 TestLazy_init. Tests the Lazy_init class.
-Copyright (C) 2012 Richel Bilderbeek
+Copyright (C) 2012-2015 Richel Bilderbeek
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -53,11 +53,15 @@ struct Z
 
 int main()
 {
+  using ribi::LazyInit0;
+  using ribi::LazyInit1;
+  using ribi::LazyInit2;
+
   std::cout << "Lazy construction\n";
-  ribi::LazyInit0<W> w;
-  ribi::LazyInit1<X,int> x(314);
-  ribi::LazyInit1<Y,std::string> y("Hello World");
-  ribi::LazyInit2<Z,std::string,int> z("Hell",0);
+  LazyInit0<W> w;
+  LazyInit1<X,int> x(314);
+  LazyInit1<Y,std::string> y("Hello World");
+  LazyInit2<Z,std::string,int> z("Hell",0);
   std::cout << "Calling objects\n";
   z.Get().f();
   y.Get().f();
